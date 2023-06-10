@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="msapplication-tap-highlight" content="no">
+	<link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/index.css">
+    <title>SongTtang's Work</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- 导航栏区域 -->
+	  <div class="top-nav">
+		  <nav>
+		    <div class="logo"><c>.</c><a href="index.html">SongTT</a></div>
+		  		<!-- 导航栏列表 -->
+		    <ul class="navItems">
+		      <li><a href="index.html">Home</a></li>
+		      <li><a href="about.html">About me</a></li>
+		      <li><a href="works.html">Works</a></li>
+		      <li><a href="contact.html">Contact</a></li>
+		  		  
+		      <img src="./assets/images/1.jpg"
+		           class="img-responsive"
+		           alt=""
+		           height="40"
+		           weight="40">
+		    </ul>
+		  </nav>
+	  </div>
+	  <!-- 内容区域 -->
+      <div class="wrapper">
+		  <!-- 泡泡内容 -->
+		<div class="pop-content">
+			<div class="bg-pop">
+				 <div class="one-pop"> </div>
+				 <div class="two-pop"></div>
+			</div>
+		</div>
+        <div class="cols cols0">
+           <div class="cols-content">
+           	<div class="wrapper-title">
+           		<span class="topline">Hi there,</span>
+           	 </div>
+           	<div class="write-text">
+           		<h1>I'm <span class="multiText"></span></h1>
+           	</div>
+           	 <div class="bottom-content">
+           		<p>This is my temporary personal website, which contains my past works, you can get a preliminary understanding of me from here. I hope you enjoy it!</p>
+           	 </div>
+           </div>
+        </div>
+      </div>
+    </div>
+    <div class="cursor"></div>
+	
+	
+	<!-- 引入外部JS -->
+	    <script src= "https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+	    <script>
+			// 使用
+	      var typingEffects = new Typed(".multiText",{
+	        strings : ["Song.","waiting for u.","Glad to see u!"],
+	        loop : true,
+	        typeSpeed : 90,
+	        backSpeed : 40,
+	        backDelay : 1700,
+	      })
+	    </script>
+    <script>
+		// 获取元素
+      const cursor = document.querySelector('.cursor');
+	  // 监听鼠标移动,并设置元素的位置
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.pageX + 'px';
+        cursor.style.top = e.pageY + 'px';
+      })
+	  const indexBtn=document.querySelector('.logo');
+	  indexBtn.addEventListener('click',function(){
+		  history.pushState("/index")
+	  })
+	  
+	  //获取阴影显示
+	  var box1 = document.querySelector('.one-pop');
+	   var box2 = document.querySelector('.two-pop');
+	  document.addEventListener('mousemove', function(e) {
+	    var posX = e.clientX;
+	    var posY = e.clientY;
+	    box1.style.transform = 'translate3d(' + posX / 20 + 'px, ' + posY / 20 + 'px, 0) rotate(' + posX / 40 + 'deg)';
+		box2.style.transform = 'translate3d(' + posX / 20 + 'px, ' + posY / 20 + 'px, 0) rotate(' + (posX / 13)*-1 + 'deg)';
+	  });
+    </script>
+
+	
+  </body>
+  
+</html>
