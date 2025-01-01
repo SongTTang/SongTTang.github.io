@@ -368,18 +368,6 @@ nav {
     align-items: center;
     cursor: pointer;
 }
-/* .close::after {
-    content: ""; 
-    display: block;
-    width: 80%; 
-    transform: translateX(10%); 
-    justify-content: center;
-    height: 3px; 
-    background-color: #fff; 
-    position: absolute;
-    bottom: 5px; 
-    left: 0;
-} */
 
 .footer {
     position: absolute;

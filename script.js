@@ -1,7 +1,4 @@
 //旋转卡片
-
-/////////////////////////////////////////////////////////////////////////////////////
-
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener ("DOMContentLoaded", function () {

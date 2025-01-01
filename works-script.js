@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+/////////////////////////////////////project-card添加hover上浮效果
 // 获取所有 project-card 元素
 const projectCards = document.querySelectorAll('.project-card');
 
