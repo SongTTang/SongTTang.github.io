@@ -307,27 +307,32 @@ nav {
     background-repeat: no-repeat; /* 防止图片重复 */
 }
 
-.project-card h1{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Montserrat", serif;
-    font-size: 25px;
-    font-weight: 700;
-    color: #fff;
-    /* letter-spacing: 0.25px; */
+/* 鼠标悬停时，字体变大和添加下划线 */
+.project-card:hover h1,
+.project-card:hover h2 {
+    font-size: 28px; /* larger */
+    text-decoration: underline; /* 添加下划线 */
+    text-decoration-color: blue;
 }
 
-.project-card h2{
+/* 对 h1 和 h2 元素应用过渡效果 */
+.project-card h1,
+.project-card h2 {
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: "Montserrat", serif;
     font-size: 25px;
     font-weight: 700;
-    color: #131314;
-    /* letter-spacing: 0.25px; */
+    margin: 0;
+    color: #fff; /* h1 的颜色保持为白色 */
+    text-decoration-color: blue; /* 让下划线出现的时候不会闪白色 */
+    transition: font-size 0.3s ease, text-decoration-color 0.3s ease; /* 添加字体和下划线的过渡 */
 }
+
+.project-card h2 {
+    color: #131314; /* h2 的颜色保持为 #131314 */
+} 
 
 .c1 {
     transform: translate(65px, 20px) rotate(5deg);

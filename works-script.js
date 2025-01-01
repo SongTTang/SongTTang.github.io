@@ -65,3 +65,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 1500); // 设置延迟1.5秒开始背景渐出
     });
 });
+
+// 获取所有 project-card 元素
+const projectCards = document.querySelectorAll('.project-card');
+
+// 给每个 .project-card 添加 hover 事件
+projectCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        // 鼠标进入时，上移 60px
+        gsap.to(card, { y: -30, duration: 0.3, ease: "power1.inOut" });
+    });
+
+    card.addEventListener('mouseleave', () => {
+        // 鼠标离开时，回到原位
+        gsap.to(card, { y: 0, duration: 0.3, ease: "power1.inOut" });
+    });
+});
