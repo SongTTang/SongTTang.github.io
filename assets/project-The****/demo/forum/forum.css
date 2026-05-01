@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+    background-color: #1b1b1b; /* Dark background similar to your image */
+    color: #e0e0e0; /* Light text color */
+}
+
+.forum-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column-reverse; /* 反转顺序 */
+}
+
+h1 {
+    padding: 20px;
+}
+.post {
+    background-color: #2b2b2b;
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.post:hover {
+    background-color: #3b3b3b;
+}
+
+/* Hover effect for h2 and p inside the post */
+.post:hover h2 {
+    color: #f9594b; /* Change h2 color when hovering on post */
+}
+
+.post:hover p {
+    color: #f2a365; /* Change p color when hovering on post */
+}
+
+.post.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

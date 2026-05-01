@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="works-styles.css">
+    <title>JiaSong's Works</title>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+</head>
+
+<body>
+    <div class="nav-background">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="assets/1.jpg" alt="Logo" width="60" height="60">
+            </div>
+            <div class="nav-items">
+                <a href="./index.html">Home</a>
+                <a href="./about.html">About Me</a>
+                <a href="./works.html">Works</a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="headImage headImage--drops">
+        <img src="assets/project-Drops/Drops-head-img.png" alt="Head Image">
+    </div>
+
+    <div class="container">
+        <h1>Drops</h1>
+        <p>2025.12</p>
+        <br>
+        <h2>
+            #Audio-visual
+            <br>
+            #Physical computing
+        </h2>
+        <iframe src="https://www.youtube.com/embed/qsY_IJYSUsc" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
+        <br>
+        <a href="https://editor.p5js.org/OliviaSong/full/BFC_JAbre" target="_blank" class="link">See P5js code here.</a>
+        <br><br>
+        <a href="https://drive.google.com/file/d/1D_Qq9njw5ohD3f3JWqjNR2-9d6iXwcdj/view?usp=sharing" target="_blank"
+            class="link">See how to play here.</a>
+        <br><br><br>
+        <p>
+            “Drops” is a real-time audiovisual instrument that transforms the raw movement of a physical joystick into
+            evolving symmetrical drawings and generative sound.
+            <br><br>
+            Using analog input through a serial connection, the system maps the joystick’s two-dimensional motion to a
+            virtual pen moving across a 1000 × 1000 canvas. Each gesture is mirrored across horizontal, vertical, and
+            diagonal axes, generating up to eight simultaneous symmetrical paths. Rather than conventional drawing, the
+            experience feels closer to conducting: subtle movements expand into mandala-like forms, while rapid gestures
+            produce crystalline geometries.
+            <br>
+            
+        </p>
+        <div class="img-grid" style="grid-template-columns: repeat(2, 1fr);">
+            <img src="assets/project-Drops/1.png" alt="screenshot">
+            <img src="assets/project-Drops/2.png" alt="screenshot2">
+            <img src="assets/project-Drops/3.png" alt="screenshot3">
+            <img src="assets/project-Drops/4.png" alt="screenshot4">
+        </div>
+        <!-- <div class="discription">Screenshot</div> -->
+        <br>
+        <p>
+            Sound is directly tied to motion.
+            <br><br>
+            The joystick’s horizontal axis controls oscillator frequency, shifting from low, meditative tones to higher,
+            sharper pitches, while the vertical axis modulates amplitude. Delay and reverb extend each sound in space,
+            creating an acoustic echo of every visual mark. A button on the joystick toggles the audio, allowing the
+            work to shift between a silent visual tool and a fully audiovisual instrument.
+            <br>
+            Arrow keys cycle through different pen-grid configurations, from 1 × 1 to 4 × 4, multiplying the mirrored
+            gesture across the canvas and increasing visual density from intimate linework to layered ornamental
+            patterns. A guide-line overlay, activated with the D key, briefly reveals the hidden axes of symmetry
+            beneath the composition.
+            <br>
+            
+        </p>
+
+        <div class="img-grid" style="grid-template-columns: repeat(2, 1fr);">
+            <img src="assets/project-Drops/9.png" alt="screenshot9">
+            <img src="assets/project-Drops/10.png" alt="screenshot10">
+            <img src="assets/project-Drops/11.png" alt="screenshot11">
+            <img src="assets/project-Drops/12.png" alt="screenshot12">
+        </div>
+        <br>
+        <p>
+            Positioned between drawing and performance, tool and instrument, each session begins with a blank white
+            field and ends as a unique record of gesture, movement, and presence.
+            <br><br>
+            Medium: p5.js, p5.sound, arduino
+            <br>
+            Keywords: generative art, physical computing, audiovisual, symmetry, real-time interaction
+        </p>
+        <div class="img-grid" style="grid-template-columns: repeat(2, 1fr);">
+            <img src="assets/project-Drops/5.png" alt="screenshot5">
+            <img src="assets/project-Drops/6.png" alt="screenshot6">
+            <img src="assets/project-Drops/7.png" alt="screenshot7">
+            <img src="assets/project-Drops/8.png" alt="screenshot8">
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="works-script.js"></script>
+</body>
+
+</html>

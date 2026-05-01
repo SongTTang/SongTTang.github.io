@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width= device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="works-styles.css">
+    <title>JiaSong's Works</title>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+</head>
+
+<body>
+    <div class="nav-background">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="assets/1.jpg" alt="Logo" width="60" height="60">
+            </div>
+            <div class="nav-items">
+                <a href="./index.html">Home</a>
+                <a href="./about.html">About Me</a>
+                <a href="./works.html">Works</a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="headImage">
+        <img src="assets/project-DailyBeverageTracker/calendar.png" alt="Head Image">
+    </div>
+
+    <div class="container">
+        <h1>Daily Beverage Tracker</h1>
+        <p>2026.1</p>
+        <br>
+        <h2>
+            #React App
+            <br>
+            #Data Visualization
+        </h2>
+        <a href="https://github.com/SongTTang/Dynamic_Web_Class/tree/main/final-daily_beverage_tracker" target="_blank"
+            class="link">See my git repo here.</a>
+        <br><br>
+        <p>
+            Daily Beverage Tracker is a React web app for tracking daily beverage intake through a calendar-style log
+            and simple data
+            visualizations.
+            <br><br>
+            The design theme centers on health awareness and data visualization, drawing inspiration from mood-tracking
+            apps to create an engaging interface.
+            <br><br>
+            It helps users understand:
+            <br>
+            - The frequency of consumption for different beverages
+            <br>
+            - Weekly or monthly favorite drinks
+            <br>
+            - And trends in daily beverage diversity over time
+        </p>
+        <div class="img-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <img src="assets/project-DailyBeverageTracker/calendar2.png" alt="calendar2">
+            <img src="assets/project-DailyBeverageTracker/calendar3.png" alt="calendar3">
+            <img src="assets/project-DailyBeverageTracker/calendar4.png" alt="calendar4">
+        </div>
+        <div class="discription">You can toggle different color themes.</div>
+        <p>
+            This project was inspired by my own daily habit of drinking different beverages (coffee, tea, milk drinks,
+            etc.) and the difficulty of remembering what I actually consumed over time.
+            <br>
+            I wanted to design a tool that feels closer to a personal journal than a strict health tracker, using a
+            calendar view and subtle visual cues instead of numbers-heavy input.
+        </p>
+        <br>
+        <div class="img-grid" style="grid-template-columns: repeat(2, 1fr);">
+            <img src="assets/project-DailyBeverageTracker/visualization.png" alt="visualization">
+            <img src="assets/project-DailyBeverageTracker/visualization2.png" alt="visualization2">
+        </div>
+        <div class="discription">VisualizationPage</div>
+        <h3>Tech Stack</h3>
+        <p>
+            <span class="highlight">React</span> – used to build a component-based interface with hooks such as
+            useState, useEffect, and useRef
+            <br>
+            <span class="highlight">Redux Toolkit + React Redux</span> – managing global application state including
+            beverage logs, filters, and color themes
+            <br>
+            <span class="highlight">Redux Persist</span> – ensuring logged data and selected themes persist after page
+            refresh
+            <br>
+            <span class="highlight">React Router</span> – handling navigation between the calendar view and
+            visualization view
+            <br>
+            <span class="highlight">Recharts</span> – creating bar and line charts to visualize beverage consumption
+            patterns
+            <br>
+            <span class="highlight">Tailwind CSS</span> – styling the interface and supporting multiple visual themes
+        </p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="works-script.js"></script>
+</body>
+
+</html>

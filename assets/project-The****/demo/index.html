@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The ****</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- 点击图片 -->
+    <img src="image.jpg" alt="Clickable Image" id="clickableImage" class="flashing-pic">
+    <!-- <p id="chatLink" class="clickable-text">Open Chat Box</p>  -->
+    <!-- 点击该文字打开聊天窗口 -->
+
+    <!-- <img src="background.png" alt="people" id="walkingpeople"> -->
+
+    <div class="message-popup" id="messagePopup">
+      <span class="close-btn" id="closeBtn">&times;</span>
+      <p>You have been invited to join the chat room.</p>
+      <button class="accept-btn" id="acceptBtn">Accept</button>
+    </div>
+
+    <img src="image1.png" id="pic1" class="moving-pic">
+    <img src="image2.png" id="pic2" class="moving-pic">
+    <img src="image3.png" id="pic3" class="moving-pic">
+    <img src="image4.png" id="pic4" class="moving-pic">
+    <img src="image5.png" id="pic5" class="moving-pic">
+    <img src="image6.png" id="pic6" class="moving-pic">
+    <!-- Add more images as needed, ensuring each has a unique ID like pic3, pic4, etc. -->
+    
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: none;">
+        <filter id="pixelate">
+            <feFlood flood-color="black" result="flood"/>
+            <feComposite in="SourceGraphic" in2="flood" operator="in" result="composite"/>
+            <feTile in="composite" result="tile"/>
+            <feMorphology operator="dilate" radius="4" in="tile" result="morph"/>
+            <feBlend mode="screen" in="morph" in2="SourceGraphic" />
+        </filter>
+    </svg>
+    <!-- 马赛克效果svg滤镜 -->
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="0" height="0" style="position: absolute;">
+        <defs>
+          <!-- 横向模糊滤镜，stdDeviation 设置为 5 0 代表横向模糊，纵向不模糊 -->
+          <filter id="horizontalBlur">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="5 0" /> 
+          </filter>
+        </defs>
+      </svg>      
+    <div class="background-filter"></div>
+
+    <canvas id="mosaicCanvas"></canvas>
+    <script src="script.js"></script>
+</body>
+</html>

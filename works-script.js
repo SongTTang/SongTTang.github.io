@@ -1,84 +1,90 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const work = document.querySelector(".work");
-    const close = document.querySelector(".close");
-    const cardContainer = document.querySelector(".project-cards");
-    const backgroundOverlay = document.querySelector('.background-overlay');
+gsap.registerPlugin(ScrollTrigger);
 
-    const tl = gsap.timeline({
-        paused: true,
-        reversed: true,
-        onStart: function () {
-            cardContainer.style.display = "flex"; // 动画开始时显示
-            cardContainer.style.visibility = "visible"; // 动画开始时可见
-            cardContainer.style.opacity = 1; // 动画开始时不透明
-            cardContainer.style.pointerEvents = "all"; // 允许点击
+gsap.utils.toArray(".project").forEach((project) => {
+    gsap.from(project, {
+        scrollTrigger: {
+            trigger: project,
+            start: "top 92%",
+            toggleActions: "play none none none",
         },
-        onReverseComplete: function () {
-            cardContainer.style.display = "none"; // 动画反转完成时隐藏
-            cardContainer.style.opacity = 0; // 动画反转完成时透明
-            cardContainer.style.pointerEvents = "none"; // 禁止点击
-        },
-    });
-
-    tl.from(".project-cards .project-card", 1.5, {
-        y: 1000,
-        stagger: {
-            amount: 0.3,
-        },
-        ease: "power4.inOut",
-    })
-    .from(
-        ".close",
-        0.5,
-        {
-            scale: 0,
-            delay: 1,
-        },
-        "<"
-    )
-    .from(".footer", 0.5, {
+        y: 50,
         opacity: 0,
-    });
-
-    work.addEventListener("click", function () {
-        if (tl.reversed()) {
-            tl.play();
-        } else {
-            tl.reverse();
-        }
-        backgroundOverlay.style.display = 'block'; // 显示背景遮罩
-        setTimeout(() => {
-            backgroundOverlay.classList.add('show'); // 添加渐变显示类
-        }, 10); // 延迟一点，确保样式生效
-    });
-
-    close.addEventListener("click", function () {
-        tl.reverse(); // 反转卡片动画
-
-        // 1秒后开始背景渐出
-        setTimeout(() => {
-            backgroundOverlay.classList.remove('show'); // 移除渐变显示类
-            // 背景渐出，持续0.5秒
-            setTimeout(() => {
-                backgroundOverlay.style.display = 'none'; // 隐藏背景遮罩
-            }, 500); // 设置与渐出过渡时间一致
-        }, 1500); // 设置延迟1.5秒开始背景渐出
+        duration: 1.2,
+        ease: "power3.out",
     });
 });
 
-/////////////////////////////////////project-card添加hover上浮效果
-// 获取所有 project-card 元素
-const projectCards = document.querySelectorAll('.project-card');
+// Declare projects first — used by both blocks below
+const projects = document.querySelectorAll(".project");
 
-// 给每个 .project-card 添加 hover 事件
-projectCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-        // 鼠标进入时，上移 60px
-        gsap.to(card, { y: -30, duration: 0.3, ease: "power1.inOut" });
+// Grayscale: dim all siblings when hovering a card,
+// restore all when the mouse leaves that card entirely.
+projects.forEach((project) => {
+    project.addEventListener("mouseenter", () => {
+        projects.forEach((p) => {
+            if (p !== project) {
+                p.style.filter = "grayscale(1) brightness(0.45)";
+                p.style.transition = "filter 0.45s ease";
+            }
+        });
     });
 
-    card.addEventListener('mouseleave', () => {
-        // 鼠标离开时，回到原位
-        gsap.to(card, { y: 0, duration: 0.3, ease: "power1.inOut" });
+    project.addEventListener("mouseleave", () => {
+        projects.forEach((p) => {
+            p.style.filter = "";
+            p.style.transition = "filter 0.45s ease";
+        });
+    });
+});
+
+// Title color + image zoom + pan-follow on hover
+const MAX_PAN = 50; // increased for bigger movement
+
+projects.forEach((project) => {
+    const imageLink = project.querySelector(".project-image-link");
+    const img = project.querySelector(".project-image-link img");
+    if (!imageLink || !img) return;
+
+    imageLink.addEventListener("mouseenter", () => {
+        project.classList.add("image-hovered");
+        gsap.to(img, {
+            scale: 1.5,
+            duration: 0.5,
+            ease: "power2.out",
+        });
+        gsap.to(project, {
+            zIndex: 10,
+            duration: 0,
+        });
+    });
+
+    imageLink.addEventListener("mousemove", (e) => {
+        const rect = imageLink.getBoundingClientRect();
+        const relX = (e.clientX - rect.left) / rect.width - 0.5;
+        const relY = (e.clientY - rect.top) / rect.height - 0.5;
+
+        gsap.to(img, {
+            x: relX * MAX_PAN * 2,
+            y: relY * MAX_PAN * 2,
+            duration: 0.6,
+            ease: "power2.out",
+        });
+    });
+
+    imageLink.addEventListener("mouseleave", () => {
+        project.classList.remove("image-hovered");
+        gsap.killTweensOf(img);
+        gsap.to(img, {
+            scale: 1,
+            x: 0,
+            y: 0,
+            duration: 0.5,
+            ease: "power2.out",
+        });
+        gsap.to(project, {
+            zIndex: 0,
+            duration: 0,
+            delay: 0.5,
+        });
     });
 });

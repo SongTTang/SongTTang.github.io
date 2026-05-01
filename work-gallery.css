@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Chonburi&family=DM+Serif+Display:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Quicksand:wght@300..700&display=swap');
+
+/* ─── Reset ─────────────────────────────────────────────── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ─── Base ───────────────────────────────────────────────── */
+html, body {
+    width: 100%;
+    background: #131314;
+    font-family: "Chonburi", sans-serif;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* ─── Navbar ─────────────────────────────────────────────── */
+.nav-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: linear-gradient(to bottom, #131314 0%, rgba(19, 19, 20, 0) 100%);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    z-index: 100;
+    padding: 16px;
+}
+
+.navbar .logo img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.nav-items {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+.nav-items a {
+    text-decoration: none;
+    color: #fff;
+    font-family: "Chonburi", sans-serif;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-items a:hover {
+    color: rgb(177, 99, 195);
+}
+
+/* ─── Page container ─────────────────────────────────────── */
+.container {
+    width: 100%;
+    max-width: 95vw;
+    margin: 0 auto;
+    padding: 140px 40px 160px;
+}
+
+/* ─── Gallery heading ────────────────────────────────────── */
+.gallery-heading {
+    font-family: "Chonburi", sans-serif;
+    font-size: clamp(36px, 6vw, 80px);
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 100px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.gallery-heading em {
+    font-family: "DM Serif Display", serif;
+    font-style: italic;
+    color: rgb(177, 99, 195);
+}
+
+/* ─── Gallery list ───────────────────────────────────────── */
+.gallery {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ─── Project entry (base) ───────────────────────────────── */
+.project {
+    display: block;
+    margin-bottom: 110px;
+    transition: filter 0.4s ease;
+    position: relative;
+    transform-origin: center center;
+    z-index: 2;
+}
+
+/* ── Hand-crafted positions for 7 projects ── */
+
+.project:nth-child(1) {
+    width: 42%;
+    margin-left: 15%;
+}
+
+.project:nth-child(2) {
+    width: 32%;
+    margin-left: auto;
+    margin-right: 2%;
+    margin-top: -10%;
+}
+
+.project:nth-child(3) {
+    width: 34%;
+    margin-left: 2%;
+    margin-top: -18%;
+}
+
+.project:nth-child(4) {
+    width: 36%;
+    margin-left: 56%;
+    margin-top: -6%;
+}
+
+.project:nth-child(5) {
+    width: 44%;
+    margin-left: 4%;
+    margin-top: -12%;
+}
+
+.project:nth-child(6) {
+    width: 30%;
+    margin-left: 60%;
+    margin-top: 0;
+}
+
+.project:nth-child(7) {
+    width: 40%;
+    margin-left: 10%;
+    margin-top: -10%;
+}
+
+/* 8+ fallback — simple alternating */
+.project:nth-child(n+8):nth-child(odd) {
+    width: 50%;
+    margin-left: 5%;
+    margin-right: 0;
+}
+
+.project:nth-child(n+8):nth-child(even) {
+    width: 40%;
+    margin-left: auto;
+    margin-right: 4%;
+}
+
+/* ─── Project image ──────────────────────────────────────── */
+.project-image-link {
+    display: block;
+    overflow: visible;
+}
+
+.project-image-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* image scale + pan handled by GSAP in works-script.js */
+
+/* ─── Project text ───────────────────────────────────────── */
+
+/* Default: left-aligned cards — text bleeds right */
+.project-info {
+    margin-top: 14px;
+    width: 140%;
+    text-align: left;
+}
+
+/* Right-aligned cards — text bleeds left */
+.project:nth-child(2) .project-info,
+.project:nth-child(4) .project-info,
+.project:nth-child(6) .project-info,
+.project:nth-child(n+8):nth-child(even) .project-info {
+    margin-left: -40%;
+    text-align: right;
+}
+
+.project-title-link {
+    text-decoration: none;
+}
+
+.project-title {
+    font-family: "Chonburi", sans-serif;
+    font-size: clamp(15px, 1.8vw, 22px);
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 6px;
+    transition: color 0.3s ease;
+}
+
+/* Title turns purple when hovering the title link */
+.project-title-link:hover .project-title {
+    /* color: blue; */
+    text-decoration: underline;
+    text-decoration-color: blue;
+}
+
+/* Title also turns purple when hovering the image — via JS-added class */
+.project.image-hovered .project-title {
+    /* color: blue; */
+    text-decoration: underline;
+    text-decoration-color: blue;
+}
+
+.project-desc {
+    font-family: "Quicksand", "Manrope", sans-serif;
+    font-size: clamp(11px, 1vw, 14px);
+    font-weight: 300;
+    color: rgba(220, 220, 220, 0.7);
+    line-height: 1.65;
+    font-style: italic;
+}
+
+.project-tag {
+    display: inline-block;
+    font-family: "Quicksand", "Manrope", sans-serif;
+    font-size: clamp(9px, 0.8vw, 11px);
+    font-weight: 500;
+    color: rgba(220, 220, 220, 0.5);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid rgba(220, 220, 220, 0.2);
+    padding: 2px 8px;
+    margin-right: 6px;
+    margin-bottom: 8px;
+}
+
+/* ─── Grayscale hover — handled in works-script.js ──────── */
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 680px) {
+    .project:nth-child(1),
+    .project:nth-child(2),
+    .project:nth-child(3),
+    .project:nth-child(4),
+    .project:nth-child(5),
+    .project:nth-child(6),
+    .project:nth-child(7),
+    .project:nth-child(n+8):nth-child(odd),
+    .project:nth-child(n+8):nth-child(even) {
+        width: 88%;
+        margin-left: 4%;
+        margin-right: 0;
+        margin-top: 0; /* reset negative margins on mobile */
+    }
+
+    .project-info {
+        width: 100%;
+        margin-left: 0 !important;
+        text-align: left !important;
+    }
+
+    .container {
+        padding: 120px 20px 80px;
+    }
+}

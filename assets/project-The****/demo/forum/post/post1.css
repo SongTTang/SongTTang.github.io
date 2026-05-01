@@ -1,0 +1,130 @@
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #1b1b1b; /* Dark background similar to your image */
+    margin: 0;
+    color: #e0e0e0; /* Light text color */
+}
+
+.post-container {
+    padding: 20px;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info h3 {
+    margin: 0;
+    color: #f2a365; /* Username color from your image */
+}
+
+.post-content {
+    margin: 20px 0;
+}
+
+.replies {
+    background-color: #2b2b2b; /* Slightly lighter dark background */
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #444;
+}
+
+.reply {
+    padding: 5px;
+    border-bottom: 1px solid #444;
+    color: #f9594b; /* Reply text color */
+    display: flex;
+    align-items: flex-start; /* 确保头像对齐到顶部 */
+}
+
+.reply-avatar {
+    width: 30px; /* 头像宽度 */
+    height: 30px; /* 头像高度 */
+    border-radius: 50%; /* 圆形头像 */
+    margin-right: 10px; /* 头像与用户名之间的间距 */
+}
+
+.reply-content {
+    display: flex;
+    flex-direction: column; /* 强制用户名和回复文本按列排列 */
+}
+
+.reply-username {
+    font-weight: bold;
+    color: #f2a365; /* Username color */
+    margin-right: 5px; /* 用户名与文本之间的间距 */
+}
+
+.reply-text {
+    margin-left: 0; /* 清除额外缩进 */
+    color: #ff6f61; /* Reply text color */
+    margin-top: 5px; /* 额外的顶部间距，确保文本与用户名有分隔 */
+}
+
+.user-reply {
+    background-color: #222; /* Background color for user's selected reply */
+}
+
+.interaction-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    color: #f2a365;
+    background-color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover:not(.disabled) {
+    background-color: #444;
+    color: #f9594b;
+}
+
+button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.back-button {
+    display: inline-block; /* 将按钮设置为内联块元素，避免占据整行 */
+    position: relative; /* 保持相对定位，避免固定定位带来的重叠问题 */
+    margin: 10px; /* 设置按钮的外边距，避免与其他内容接触 */
+    text-decoration: none;
+    font-size: 16px; /* 适当调整字体大小，使按钮看起来更紧凑 */
+    color: #f2a365;
+    padding: 5px 10px; /* 控制按钮的内边距，保持合适的大小 */
+    border: 1px solid #f2a365;
+    border-radius: 5px;
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    z-index: 1000; /* 保证按钮在其他内容之上 */
+}
+
+.back-button:hover {
+    background-color: #f2a365;
+    color: #1b1b1b;
+}
+
+#pic {
+    text-align: center;
+}
+
+#picwid{
+    width: 60vw;
+}

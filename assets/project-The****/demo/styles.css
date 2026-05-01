@@ -1,0 +1,189 @@
+body {
+    background-color: black; /* 保持背景颜色为黑色 */
+    background-image: url('background.png'); /* 背景图片路径 */
+    background-repeat: repeat-x; /* 水平重复图片 */
+    background-size: auto 100vh; /* 高度适应窗口，高度为100vh，宽度自动调整 */
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: grab;
+    overflow: hidden; /* 防止出现滚动条 */
+
+    /* filter: grayscale(50%) brightness(120%); */
+
+    --background-pos-x: 0px;
+    --background-pos-y: 0px;
+}
+.background-filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('background.png');
+    background-repeat: repeat-x;
+    background-size: auto 100vh;
+    background-position: 0 0;
+    z-index: -1;
+    filter: grayscale(80%) sepia(20%) blur(1px); 
+    /* 只给这个容器添加滤镜 */
+
+}
+
+body::after {
+    content: "";
+    position: absolute; /* 背景 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('background.png'); /* 背景图片路径 */
+    background-size: cover; /* 使背景图片覆盖整个页面 */
+    
+    /* background-position: center; 居中显示 */
+    background-position: var(--background-pos-x) var(--background-pos-y); /* 使用CSS变量 */
+    
+    background-repeat: repeat; /* 重复 */
+    z-index: -1; /* 放置在所有内容下面 */
+    opacity: 0.7; /* 可选：调整透明度 */
+    filter: url(#pixelate); /* Apply the pixelation effect */
+    transition: background-position 0s;
+}
+body:active::after {
+    filter: none; /* 取消滤镜 */
+    cursor: grabbing;
+    opacity: 0.9;
+}
+body.dragging::after {
+    filter: url(#horizontalBlur); /* 拖动时叠加横向模糊滤镜 */
+}
+
+/* --------------------------------------------- */
+/* 居中显示 Clickable Image */
+#clickableImage {
+    width: 400px;        /* 图片宽度 */
+    cursor: help !important;     /* 鼠标悬停时显示为指针 */
+    position: absolute;  /* 确保定位属性生效 */
+    left: 50%;           /* 水平居中 */
+    top: 50%;            /* 垂直居中 */
+    transform: translate(-50%, -50%); /* 将图片自身的中心点移到视口中心 */
+    z-index: 20;         /* 确保在最上层，不受其他元素影响 */
+    filter: url(#pixelate); /* Apply the pixelation effect */
+}
+#clickableImage:hover {
+    filter: none;
+    cursor: help !important;
+}
+
+/* 保持移动图片的定位和动画 */
+.moving-pic {
+    position: absolute;  /* 确保定位方式为绝对定位 */
+    width: 50px;
+    height: auto;
+    transition: transform 0.1s linear;
+    z-index: 5;          /* 设置层级低于 clickablImage */
+    cursor: pointer !important;
+    filter: url(#pixelate); /* Apply the pixelation effect */
+}
+.moving-pic:hover {
+    filter: none;
+}
+
+
+/* #walkingpeople {
+    left: 0px;
+    top: 0px;
+    height: fit-content;
+    z-index: -10;
+} */
+
+.flashing-pic {
+    animation: flash 6s infinite; 
+}
+
+@keyframes flash {
+    0%, 80% { /* 0s to 4.8s - Hidden */
+        opacity: 0;
+    }
+    81%, 83% { /* Flash on for 0.2s */
+        opacity: 1;
+    }
+    83%, 85% { /* Flash off for 0.2s */
+        opacity: 0;
+    }
+    85%, 87% { /* Flash on for 0.2s */
+        opacity: 1;
+    }
+    87%, 89% { /* Flash off for 0.2s */
+        opacity: 0;
+    }
+    89%, 91% { /* Flash on for 0.2s */
+        opacity: 1;
+    }
+    91%, 100% { /* Back to hidden */
+        opacity: 0;
+    }
+}
+
+
+.clickable-text {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+    text-align: center;
+}
+
+/* .moving-pic {
+    position: absolute;
+    width: 50px; Adjust size as needed
+    height: auto;
+    transition: transform 0.1s linear; Smooth movement
+    cursor: pointer;
+}
+ */
+
+ .message-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #222;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    padding-bottom: 50px; /* Add padding at the bottom for the button */
+    width: 250px;
+    z-index: 1000;
+    display: none; /* Hidden by default */
+  }
+  
+  .message-popup p {
+    margin: 0 0 10px;
+    font-size: 14px;
+    color: #ffffff;
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    color: #888;
+  }
+  
+  .accept-btn {
+    background-color: #941212;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    position: absolute;
+    bottom: 10px; /* Position at the bottom */
+    right: 10px;  /* Align to the right */
+  }
+  
+  .accept-btn:hover {
+    background-color: #45a049;
+  }
+  

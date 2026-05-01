@@ -1,0 +1,61 @@
+body {
+    margin: 0;
+    background-color: #000; /* Set background color to black */
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.chat-box {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    overflow-y: auto;
+    background-color: #000; /* Set background color to black */
+    color: #fff;
+    font-family: monospace;
+}
+
+.message {
+    margin: 2px 0;
+    padding: 4px 12px;
+    max-width: 80%;
+}
+
+.message.bot {
+    color: #8d5555;
+}
+
+.message.user {
+    color: #650606;
+}
+
+.input-container {
+    display: flex;
+    padding: 10px;
+    background-color: #000;
+    border-top: 1px solid #ddd;
+}
+
+#chatInput {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #000;
+    border: 1px solid #ccc;
+    color: #fff;
+}
+
+#sendButton {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    background: none; /* Remove background color */
+    font-weight: bold;
+}

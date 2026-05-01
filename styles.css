@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Chonburi&family=DM+Serif+Display:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
 
-html, body{
+html,
+body {
     width: 100%;
     height: 100%;
     font-family: "Chonburi", sans-serif;
-    /* font-family: "dm serif display"; */
     font-style: normal;
     background: #4a0304;
     overflow-x: hidden;
-} 
+}
 
 /* 背景遮罩层（默认隐藏） */
 .background-overlay {
@@ -23,83 +23,88 @@ html, body{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色 */
-    display: none; /* 默认隐藏 */
-    z-index: 400; /* 确保在卡片的下方 */
-    backdrop-filter: blur(10px); /* 背景模糊 */
-    -webkit-backdrop-filter: blur(10px); /* Safari 支持 */
-    opacity: 0; /* 初始透明度 */
-    transition: opacity 0.5s ease; /* 过渡动画 */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 半透明黑色 */
+    display: none;
+    /* 默认隐藏 */
+    z-index: 400;
+    /* 确保在卡片的下方 */
+    backdrop-filter: blur(10px);
+    /* 背景模糊 */
+    -webkit-backdrop-filter: blur(10px);
+    /* Safari 支持 */
+    opacity: 0;
+    /* 初始透明度 */
+    transition: opacity 0.5s ease;
+    /* 过渡动画 */
 }
 
 /* 显示时的样式 */
 .background-overlay.show {
     opacity: 1;
-    display: block; /* 保证遮罩层能被显示 */
+    display: block;
+    /* 保证遮罩层能被显示 */
 }
 
-.container{
+.container {
     width: 100%;
     min-height: 100vh;
     background-color: #131314;
     margin-top: 25px;
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
     height: 1400vh;
 }
 
 .navbar {
     position: fixed;
-    top: 20px;  /* 距离页面上边缘 */
-    left: 20px;  /* 距离页面左边缘 */
+    top: 20px;
+    left: 20px;
     display: flex;
-    flex-direction: row;  /* logo和按钮横向排列 */
-    align-items: flex-start;  /* 顶部对齐 */
+    flex-direction: row;
+    /* logo和按钮横向排列 */
+    align-items: flex-start;
+    /* 顶部对齐 */
     z-index: 100;
 }
 
-/* 设置logo样式 */
 .navbar .logo img {
     width: 60px;
     height: 60px;
 }
 
-/* 设置导航项 */
 .nav-items {
     display: flex;
-    flex-direction: column;  /* 垂直排列按钮 */
-    margin-left: 20px;  /* 给logo和按钮之间添加间距 */
+    flex-direction: column;
+    /* 垂直排列按钮 */
+    margin-left: 20px;
+    /* 给logo和按钮之间添加间距 */
 }
 
 /* 设置导航按钮样式 */
 .nav-items a {
     text-decoration: none;
-    color: white;  /* 初始文字颜色为白色 */
+    color: white;
     font-size: 18px;
     margin-top: 0;
-    /* margin-bottom: 10px; */
-    /* margin: 10px 0;  */
-    transition: color 0.3s ease;  /* 添加平滑的颜色过渡效果 */
+    transition: color 0.3s ease;
+    /* 添加平滑的颜色过渡效果 */
 }
 
-/* 鼠标悬停时变色 */
 .nav-items a:hover {
-    color: rgb(177, 99, 195);  /* 鼠标hover时变色 */
+    color: rgb(177, 99, 195);
 }
 
+/* Work has a seperate class bc it's a button. Change it if there's a page of all works */
 .nav-items .work {
     text-decoration: none;
-    color: white;  /* 初始文字颜色为白色 */
+    color: white;
     font-size: 18px;
     margin-top: 0;
-    /* margin-bottom: 10px; */
-    /* margin: 10px 0;  */
-    transition: color 0.3s ease;  /* 添加平滑的颜色过渡效果 */
+    transition: color 0.3s ease;
 }
 
 .nav-items .work:hover {
-    color: rgb(177, 99, 195);  /* 鼠标hover时变色 */
+    color: rgb(177, 99, 195);
     cursor: pointer;
 }
 
@@ -122,7 +127,6 @@ h1 {
     font-weight: 300;
     text-align: center;
     margin-top: 30px;
-    /* margin: 0; */
 }
 
 nav {
@@ -275,10 +279,10 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    /* display: flex; */
     display: none;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     pointer-events: none;
     opacity: 0;
     z-index: 500;
@@ -286,32 +290,30 @@ nav {
 
 .project-cards .project-card {
     position: relative;
-    top: 15vh;
+    top: 10vh;
     width: 400px;
     height: 200px;
     border-radius: 10px;
-    /* background: #fff; */
     box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
     font-family: "Montserrat", serif;
     font-size: 25px;
     font-weight: 700;
-    /* text-decoration: ; */
-    /* letter-spacing: 0.25px; */
 
-    /* 针对填充的背景图片 */
-    background-size: cover; /* 确保图片覆盖整个卡片区域 */
-    background-position: center; /* 确保图片居中 */
-    background-repeat: no-repeat; /* 防止图片重复 */
+    /* background img */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* 鼠标悬停时，字体变大和添加下划线 */
+/* project card hover */
 .project-card:hover h1,
 .project-card:hover h2 {
-    font-size: 28px; /* larger */
-    text-decoration: underline; /* 添加下划线 */
+    font-size: 28px;
+    /* larger */
+    text-decoration: underline;
     text-decoration-color: blue;
 }
 
@@ -325,30 +327,76 @@ nav {
     font-size: 25px;
     font-weight: 700;
     margin: 0;
-    color: #fff; /* h1 的颜色保持为白色 */
-    text-decoration-color: blue; /* 让下划线出现的时候不会闪白色 */
-    transition: font-size 0.3s ease, text-decoration-color 0.3s ease; /* 添加字体和下划线的过渡 */
+    color: #fff;
+    /* h1 的颜色保持为白色 */
+    text-decoration-color: blue;
+    /* 让下划线出现的时候不会闪白色 */
+    transition: font-size 0.3s ease, text-decoration-color 0.3s ease;
+    /* 添加字体和下划线的过渡 */
 }
 
 .project-card h2 {
-    color: #131314; /* h2 的颜色保持为 #131314 */
-} 
+    color: #131314;
+}
+
+.project-card p1,
+.project-card p2 {
+    font-size: 15px;
+    font-weight: 600;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-card p1 {
+    color: #f77bf5;
+}
+
+.project-card p2 {
+    color: #0031e0;
+    font-weight: 650;
+}
+
+.project-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.row-2 {
+    gap: 40px;
+}
 
 .c1 {
     transform: translate(65px, 20px) rotate(5deg);
-    background-image: url(assets/project-1/cover-1.png);
+    background-image: url(assets/project-The****/cover-The****.png);
 }
+
 .c2 {
     transform: translate(-5px, -10px) rotate(-2.5deg);
-    background-image: url(assets/project-2/cover-2.png);
+    background-image: url(assets/project-Drops/11.png);
 }
+
 .c3 {
-    transform: translate(-40px, 10px) rotate(2.5deg);
-    background-image: url(assets/project-3/cover-3.png);
-}
-.c4 {
     transform: translate(-70px, 30px) rotate(-7.5deg);
-    background-image: url(assets/project-4/cover-4.png);
+    background-image: url(assets/project-HiddenNames/cover-HiddenNames.png);
+}
+
+.c4 {
+    transform: translate(-40px, 10px) rotate(2.5deg);
+    background-image: url(assets/project-VitaFood/cover-4.png);
+}
+
+.c5 {
+    transform: translate(45px, -10px) rotate(-1deg);
+    background-image: url(assets/project-DailyBeverageTracker/cover-DailyBeverageTracker.png);
+}
+
+.c6 {
+    transform: translate(-20px, 10px) rotate(5deg);
+    background-image: url(assets/project-MoodBin/cover-MoodBin.png);
 }
 
 .close {
